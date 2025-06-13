@@ -24,7 +24,7 @@
       i Service: "1.1.1"
     Condition
       Warning:
-      ! Service version "1.1.1" can result in unexpected behaviour on the "human activities" server.  We strongly recommend reconnecting using `service_version` "2.0.1".
+      ! Service version "1.1.1" can result in unexpected behaviour on the "human activities" server. We strongly recommend reconnecting using `service_version` "2.0.1".
     Output
       <WCSClient>
       ....|-- url: https://ows.emodnet-humanactivities.eu/wcs
@@ -50,7 +50,7 @@
       i HTTP Status: Success: (200) OK
     Condition
       Error in `check_service()`:
-      x An exception has occurred. Please raise an issue in <https://github.com/EMODnet/emodnet.wcs/issues>
+      ! An exception has occurred.  Please raise an issue in <https://github.com/EMODnet/emodnet.wcs/issues>
 
 # No internet challenge
 

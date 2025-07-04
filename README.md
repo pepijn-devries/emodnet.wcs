@@ -5,11 +5,17 @@
 
 <!-- badges: start -->
 
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![CRAN status](https://www.r-pkg.org/badges/version/emodnet.wcs)](https://CRAN.R-project.org/package=emodnet.wcs) [![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/branch/main/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs?branch=master)
-[![Codecov test coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/emodnet.wcs)](https://CRAN.R-project.org/package=emodnet.wcs)
+[![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/branch/main/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs?branch=master)
+[![Codecov test
+coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs)
 [![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
-
 
 The goal of emodnet.wcs is to allow interrogation of and access to
 EMODnet geographic raster data in R though the [EMODnet Web Coverage
@@ -48,17 +54,25 @@ library(emodnet.wcs)
 #> Loading ISO 19139 codelists...
 ```
 
+If you want to avoid reading messages from emodnet.wcs such as “WCS
+client created successfully”, set the `"emodnet.wcs.quiet"` option to
+`TRUE`.
+
+``` r
+options("emodnet.wcs.quiet" = TRUE)
+```
+
 ## Available services
 
 All available services are contained in the tibble returned by
 `emdn_wcs()`.
 
-| service_name     | service_url                                                                   |
-|:-----------------|:------------------------------------------------------------------------------|
-| bathymetry       | <https://ows.emodnet-bathymetry.eu/wcs>                                       |
-| biology          | <https://geo.vliz.be/geoserver/Emodnetbio/wcs>                                |
-| human_activities | <https://ows.emodnet-humanactivities.eu/wcs>                                  |
-| seabed_habitats  | <https://ows.emodnet-seabedhabitats.eu/geoserver/emodnet_open_maplibrary/wcs> |
+| service_name | service_url |
+|:---|:---|
+| bathymetry | <https://ows.emodnet-bathymetry.eu/wcs> |
+| biology | <https://geo.vliz.be/geoserver/Emodnetbio/wcs> |
+| human_activities | <https://ows.emodnet-humanactivities.eu/wcs> |
+| seabed_habitats | <https://ows.emodnet-seabedhabitats.eu/geoserver/emodnet_open_maplibrary/wcs> |
 
 To explore available services in your R session use:
 
@@ -257,11 +271,10 @@ cov <- emdn_get_coverage(
   bbox = c(xmin = 0, ymin = 40, xmax = 5, ymax = 45),
   nil_values_as_na = TRUE
 )
-#> ── Downloading coverage "Emodnetbio__aca_spp_19582016_L1" ────────────────────────────────────────
+#> ── Downloading coverage "Emodnetbio__aca_spp_19582016_L1" ──────────────────────
 #> <GMLEnvelope>
 #> ....|-- lowerCorner: 40 0 "1958-02-16T01:00:00"
 #> ....|-- upperCorner: 45 5 "2016-11-16T01:00:00"
-#> 
 #> ✔ Coverage "Emodnetbio__aca_spp_19582016_L1" downloaded succesfully as a
 #>        terra <SpatRaster>
 #> ✔ nil values 9.96920996838687e+36 converted to NA on all bands.

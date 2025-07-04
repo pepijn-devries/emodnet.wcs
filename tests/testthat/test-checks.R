@@ -33,27 +33,42 @@ test_that("validate_bbox works", {
     )
   )
 
-  expect_error(validate_bbox(c(
-    xmin = -90.000000000036,
-    ymin = -180,
-    xmax = -180.000000000072,
-    ymax = 90
-  )))
+  expect_snapshot(
+    error = TRUE,
+    validate_bbox(
+      c(
+        xmin = -90.000000000036,
+        ymin = -180,
+        xmax = -180.000000000072,
+        ymax = 90
+      )
+    ),
+  )
 
-  expect_error(validate_bbox(c(
-    xmin = -90.000000000036,
-    ymin = -180,
-    ymax = 90
-  )))
+  expect_snapshot(
+    error = TRUE,
+    validate_bbox(
+      c(
+        xmin = -90.000000000036,
+        ymin = -180,
+        ymax = 90
+      )
+    )
+  )
 
-  expect_error(validate_bbox(c(
-    xmin = -180,
-    ymin = -90.000000000036,
-    xmax = 180.000000000072,
-    ymax = "90"
-  )))
+  expect_snapshot(
+    error = TRUE,
+    validate_bbox(
+      c(
+        xmin = -180,
+        ymin = -90.000000000036,
+        xmax = 180.000000000072,
+        ymax = "90"
+      )
+    )
+  )
 
-  expect_error(validate_bbox(NA))
+  expect_snapshot(error = TRUE, validate_bbox(NA))
 
   expect_equal(validate_bbox(NULL), NULL)
 })
@@ -82,7 +97,7 @@ test_that("check coverages works", {
   )
 
   expect_invisible(check_coverages(wcs, coverage_ids))
-  expect_error(check_coverages(wcs, "erroneous_id"))
+  expect_snapshot(error = TRUE, check_coverages(wcs, "erroneous_id"))
 })
 
 test_that("validate rangesubset works", {
@@ -92,6 +107,9 @@ test_that("validate rangesubset works", {
 
     expect_invisible(validate_rangesubset(summary, "relative_abundance"))
 
-    expect_error(validate_rangesubset(summary, "erroneous_rangetype"))
+    expect_snapshot(
+      error = TRUE,
+      validate_rangesubset(summary, "erroneous_rangetype")
+    )
   })
 })

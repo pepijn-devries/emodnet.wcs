@@ -21,7 +21,7 @@ test_that("extent & crs processed correctly", {
 
 
 test_that("dimensions processed correctly", {
-  with_mock_dir("biology-description", {
+  with_mock_dir("biology-description2", {
     wcs <- emdn_init_wcs_client(service = "biology")
     summaries <- emdn_get_coverage_summaries_all(wcs)
     summary <- summaries[[1]]
@@ -73,7 +73,7 @@ test_that("dimensions processed correctly", {
 
 test_that("rangeType processed correctly", {
   summary <- create_biology_summary()[[1]]
-  with_mock_dir("biology-description", {
+  with_mock_dir("biology-description3", {
     expect_equal(
       emdn_get_band_nil_values(summary),
       c(relative_abundance = 9.96920996838687e+36)

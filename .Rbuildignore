@@ -16,3 +16,5 @@
 ^[\.]?air\.toml$
 ^\.vscode$
 ^\.lintr$
+^doc$
+^Meta$

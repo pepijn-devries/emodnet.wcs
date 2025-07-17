@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-vcr::setup_knitr()
+vcr::setup_knitr(prefix = "emodnet.wcs")
 ```
 
 ## WCS Basics
@@ -50,7 +50,6 @@ library(emodnet.wcs)
 ```
 
 ```{r}
-#| cassette: info
 emdn_wcs()
 ```
 
@@ -62,7 +61,8 @@ Before we can make requests to any of the services, we first need to create new 
 We specify the service we want to connect to using the`service` argument.
 
 ```{r}
-#| cassette: bio
+#| label: bio
+#| cassette: true
 wcs <- emdn_init_wcs_client("biology")
 ```
 
@@ -78,7 +78,8 @@ There are 3 levels of potential logging:
 The following example sets the logger to `"DEBUG"`.
 
 ```{r}
-#| cassette: bio-debug
+#| label: bio-debug
+#| cassette: true
 debug_wcs <- emdn_init_wcs_client("biology", logger = "DEBUG")
 ```
 
@@ -107,14 +108,15 @@ For more details see the relevant vignette.
 Get service level and a subset of coverage level metadata, compiled for easy review.
 
 ```{r}
-#| cassette: bio-info
+#| label: bio-info
+#| cassette: true
 emdn_get_wcs_info(wcs = wcs)
 ```
 
 Get more detailed coverage metadata about specific coverage.
 
 ```{r}
-#| cassette: coverage-info
+#| label: coverage-info
 emdn_get_coverage_info(
   wcs,
   coverage_ids = "Emodnetbio__cal_fin_19582016_L1_err"
@@ -124,7 +126,6 @@ emdn_get_coverage_info(
 The package offers a number of functions for extracting individual metadata in more usable forms. e.g.
 
 ```{r}
-#| cassette: coverage-ids
 emdn_get_coverage_ids(wcs)
 ```
 
@@ -137,7 +138,8 @@ The package also provides a function to download full or subsets of coverages fr
 The following example downloads a spatial subset of a coverage using a bounding box.
 
 ```{r}
-#| cassette: name
+#| label: name
+#| cassette: true
 coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
 cov <- emdn_get_coverage(
   wcs,

@@ -1,0 +1,53 @@
+http_interactions:
+- request:
+    method: GET
+    uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__cal_fin_19582016_L1_err&subset=Lat%2840%2C45%29&format=image%2Ftiff&request=GetCoverage
+  response:
+    status: 200
+    headers:
+      x-content-type-options: nosniff
+      x-frame-options: SAMEORIGIN
+      content-security-policy: base-uri 'self'; form-action 'self'; default-src 'none';
+        child-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:;
+        style-src 'self' 'unsafe-inline'; script-src 'self';, frame-ancestors 'self';
+      access-control-allow-origin: '*'
+      content-disposition: inline; filename=Emodnetbio__cal_fin_19582016_L1_err.tif
+      content-type: image/tiff
+      transfer-encoding: chunked
+      date: Thu, 17 Jul 2025 11:00:20 GMT
+    body:
+      raw_gzip: |-
+        eJzt3bFrE2EcxvHfm1Rx6FCHLrp0FAcpLYRmOlErOnTyrxECh4O4uDiqq4sgODtJ/gsFh1qq
+        ItY2rVZ
+        Ra19J+l65HrleLnlzvzvv+4GH5xqL2udNWqxwXVuTyyJyTs4bkaaIGFkSMSZ23Rhc
+        N2RBFkzTPW5EzN
+        nY9by7boiYC3JmcC3yzlw8vt40l2Lvf81dL4qY67HrGzIjMsiWWT2+PjB3
+        3N+hKc37b2RWROZEzOyDl
+        4PH+9cPn93r/+kyL2JeSMScjOmK3O6KPOqKvO2K3JJ4gleP+55I
+        QvD85OOvE+939ebd/ttPZUxBz10M
+        tpHmzNF1Y8YcPXZu8Pbcx/aVdqu9tNhut1aWV1orrfbq
+        cks6PSGEEEIIIYQQQgghhBBCBglCe+jaxt8
+        m08mQvW3G4/a09yfDM8KehxP20N+3rhnheV1I
+        1y1pn7+1um4py+7s72c/9s8X9tcN++sm9vGX4hzqGv
+        bXTVleB3UP+xebKX5/gf1zhP3LEfbX
+        DfsXm9jHz+efAlK2vf/3/YPQ/u542KWormqC0O65/uZ63/VP1
+        79cH3Q87DStrlqC0O66jvb/
+        nuj9RJf6HMqe2M67id5L6Uqdg3aC0PZc72b0Xs6uxDlMK0Fot13vJLqX
+        6HH3nfQc/rhWPQdf
+        OWXvncSv+9p10nOIvk5H5+Blz6L3P2XntI6e9752zbt/2jmovA7GzZDn+/aI7Wt
+        PX68D1a8L
+        4yYI7Zbrr663c7avPSt9DqMmCO2HRH9y/cX1VqI5hxE6K0FoNxK9mWhf5+Frz0qdQ1aC0L
+        53
+        vZHSvs/D156VOIe0BKFdT+mNjM57HrU+h87ou2d13vP47DrrdeFrT1/n4PXfDfGgWOyvi/11
+        sb8u
+        9tfF/rrYXxf762J/Xeyvi/11sb8u9tfF/rrYX1fn6PvQlv11sL+uTuL/YVAs9tfF/rrY
+        Xxf762J/Xey
+        vi/11sb8u9tfF/rrYXxf762J/Xeyvi/11sb8u9tfF/rrYXxf762J/Xeyvi/11
+        sb8u9tfF/rrYXxf762
+        J/XeyvK9rdncO65/Z9nzJf91Mat6P7rP9wHd1/6a/rcX++gK+9857L
+        uPcpG/X+rb2Unui+0lnJsfuhA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICS+P1QOtx/qXDs
+        DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD19A/vwOYL
+  recorded_at: 2025-07-17 11:00:20
+recorded_with: VCR-vcr/1.7.1.93

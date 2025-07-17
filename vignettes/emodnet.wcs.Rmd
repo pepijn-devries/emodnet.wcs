@@ -79,27 +79,23 @@ The following example sets the logger to `"DEBUG"`.
 
 ```{r}
 #| cassette: bio-debug
-wcs <- emdn_init_wcs_client("biology", logger = "DEBUG")
+debug_wcs <- emdn_init_wcs_client("biology", logger = "DEBUG")
 ```
 
 The `emdn_init_wcs_client()` functions returns an R6 object of class [`<WCSClient>`](https://eblondel.github.io/ows4R/reference/WCSClient.html).
 
 ```{r}
-wcs
+debug_wcs
 ```
 
 You can use any of the methods provided within the class should you wish (see [`ows4R` documentation](https://eblondel.github.io/ows4R/articles/wcs.html) for details).
 
 ```{r}
-wcs$getUrl()
+debug_wcs$getUrl()
 
-wcs$loggerType
+debug_wcs$loggerType
 ```
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-#| cassette: bio
-wcs <- emdn_init_wcs_client("biology")
-```
 
 However `emodnet.wcs` provides a host of functions for extracting/compiling useful metadata in a variety of forms as well downloading raster data from emodnet.wcs service which you will likely find easier to work with.
 

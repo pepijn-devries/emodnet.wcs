@@ -118,17 +118,30 @@ check_cov_contains_bbox <- function(summary, bbox, crs) {
   cov_bbox <- emdn_get_bbox(summary) |>
     sf::st_as_sfc()
 
+  # crs is NULL if it's the same as the coverage crs
+  user_supplied_crs <- crs
+  crs <- crs %||% sf::st_crs(cov_bbox)
+
   bbox <- sf::st_bbox(bbox, crs = sf::st_crs(crs)) |>
     sf::st_as_sfc() |>
     sf::st_transform(crs = sf::st_crs(cov_bbox)) # cov_bbox can be the same
 
-  intersects <- isTRUE(sf::st_intersects(bbox, cov_bbox))
+  intersects <- isTRUE(as.logical(sf::st_intersects(bbox, cov_bbox)))
 
   if (!intersects) {
-    cli::cli_warn(
-      "{.var bbox} boundaries lie outside coverage extent. 
+    message <-
+      "{.var bbox} boundaries lie outside coverage extent.
       No overlapping data to download."
-    )
+    if (is.null(user_supplied_crs)) {
+      message <- c(
+        message,
+        i = sprintf(
+          "The coverage crs is %s. You can supply the crs of your bbox through {.arg crs}.",
+          sf::st_crs(cov_bbox)[["input"]]
+        )
+      )
+    }
+    cli::cli_warn(message)
   }
 }
 

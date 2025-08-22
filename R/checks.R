@@ -110,49 +110,38 @@ check_coverages <- function(wcs, coverages) {
   }
 }
 
-check_cov_contains_bbox <- function(summary, bbox, crs = NULL) {
+check_cov_contains_bbox <- function(summary, bbox, crs) {
   if (is.null(bbox)) {
     return()
   }
-  cov_bbox <- emdn_get_bbox(summary)
 
-  if (!is.null(crs)) {
-    bbox <- sf::st_bbox(bbox, crs = sf::st_crs(crs))
+  cov_bbox <- emdn_get_bbox(summary) |>
+    sf::st_as_sfc()
 
-    if (sf::st_crs(cov_bbox) != sf::st_crs(bbox)) {
-      bbox <- bbox |>
-        sf::st_as_sfc() |>
-        sf::st_transform(crs = sf::st_crs(cov_bbox)) |>
-        sf::st_bbox()
+  # crs is NULL if it's the same as the coverage crs
+  user_supplied_crs <- crs
+  crs <- crs %||% sf::st_crs(cov_bbox)
+
+  bbox <- sf::st_bbox(bbox, crs = sf::st_crs(crs)) |>
+    sf::st_as_sfc() |>
+    sf::st_transform(crs = sf::st_crs(cov_bbox)) # cov_bbox can be the same
+
+  intersects <- isTRUE(as.logical(sf::st_intersects(bbox, cov_bbox)))
+
+  if (!intersects) {
+    message <-
+      "{.var bbox} boundaries lie outside coverage extent.
+      No overlapping data to download."
+    if (is.null(user_supplied_crs)) {
+      message <- c(
+        message,
+        i = sprintf(
+          "The coverage crs is %s. You can supply the crs of your bbox through {.arg crs}.",
+          sf::st_crs(cov_bbox)[["input"]]
+        )
+      )
     }
-  }
-  test_bbox <- !c(
-    bbox[c("xmax", "ymax")] <= cov_bbox[c("xmax", "ymax")],
-    bbox[c("xmin", "ymin")] <= cov_bbox[c("xmax", "ymax")],
-    bbox[c("xmin", "ymin")] >= cov_bbox[c("xmin", "ymin")],
-    bbox[c("xmax", "ymax")] >= cov_bbox[c("xmin", "ymin")]
-  )
-
-  outlying_edges <- unique(names(test_bbox)[test_bbox])
-  if (length(outlying_edges) == 0L) {
-    outlying_edges <- ""
-  }
-
-  if (
-    all(test_bbox) ||
-      all(outlying_edges %in% c("ymax", "ymin")) ||
-      all(outlying_edges %in% c("xmax", "xmin"))
-  ) {
-    cli::cli_abort(
-      "{.var bbox} boundaries {.val {names(test_bbox)[test_bbox]}} lie
-            outside coverage extent. No overlapping data to download."
-    )
-  }
-  if (any(test_bbox)) {
-    cli::cli_warn(
-      "{.var bbox} boundaries {.val {names(test_bbox)[test_bbox]}} lie
-            outside coverage extent. No overlapping data to download."
-    )
+    cli::cli_warn(message)
   }
 }
 

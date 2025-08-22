@@ -538,19 +538,31 @@ conc_bbox <- function(bbox) {
 extr_bbox_crs <- function(summary) {
   bbox_crs <- summary$getBoundingBox()$BoundingBox$attrs$crs
 
-  if (!is.null(bbox_crs)) {
-    crs_parts <- unlist(strsplit(bbox_crs, "EPSG:", fixed = TRUE))
-    if (length(crs_parts) == 2L) {
-      srid <- as.integer(crs_parts[2L])
-      if (!is.na(srid)) bbox_crs <- sf::st_crs(srid)
-    } else {
-      bbox_crs <- sf::st_crs(4326L)
-    }
-  } else {
-    bbox_crs <- sf::st_crs(4326L)
+  if (is.null(bbox_crs)) {
+    return(default_crs())
   }
 
-  bbox_crs
+  crs_parts <- unlist(strsplit(bbox_crs, "EPSG:"))
+  if (length(crs_parts) == 2) {
+    srid <- as.integer(crs_parts[2])
+    if (!is.na(srid)) {
+      bbox_crs <- sf::st_crs(srid)
+    }
+    return(bbox_crs)
+  }
+
+  opengis_string <- "http://www.opengis.net/def/crs/EPSG/0/"
+  has_opengis_info <- startsWith(crs_parts[1], opengis_string)
+  if (has_opengis_info) {
+    bbox_crs <- sf::st_crs(as.integer(gsub("^?.*/", "", crs_parts[1])))
+    return(bbox_crs)
+  }
+
+  default_crs()
+}
+
+default_crs <- function() {
+  sf::st_crs(4326)
 }
 
 conc_resolution <- function(x) {

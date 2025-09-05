@@ -115,18 +115,19 @@ check_cov_contains_bbox <- function(summary, bbox, crs) {
     return()
   }
 
-  cov_bbox <- emdn_get_bbox(summary) |>
-    sf::st_as_sfc()
+  cov_bbox <- emdn_get_WGS84bbox(summary) |>
+    sf::st_as_sfc(crs = "WGS84")
 
   # crs is NULL if it's the same as the coverage crs
   user_supplied_crs <- crs
   crs <- crs %||% sf::st_crs(cov_bbox)
 
-  bbox <- sf::st_bbox(bbox, crs = sf::st_crs(crs)) |>
-    sf::st_as_sfc() |>
+  user_bbox <- sf::st_as_sfc(sf::st_bbox(bbox))
+  sf::st_crs(user_bbox) <- crs
+  user_bbox <- sf::st_as_sfc(sf::st_bbox(user_bbox)) |>
     sf::st_transform(crs = sf::st_crs(cov_bbox)) # cov_bbox can be the same
 
-  intersects <- isTRUE(as.logical(sf::st_intersects(bbox, cov_bbox)))
+  intersects <- isTRUE(as.logical(sf::st_intersects(user_bbox, cov_bbox)))
 
   if (!intersects) {
     message <-

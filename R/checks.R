@@ -146,8 +146,8 @@ check_cov_contains_bbox <- function(summary, bbox, crs) {
 
 s2_intersects <- function(bbox1, bbox2) {
   current <- sf::sf_use_s2()
-  sf::sf_use_s2(TRUE)
-  on.exit(sf::sf_use_s2(current))
+  suppressMessages(sf::sf_use_s2(TRUE))
+  on.exit(suppressMessages(sf::sf_use_s2(current)))
   isTRUE(as.logical(sf::st_intersects(bbox1, bbox2)))
 }
 

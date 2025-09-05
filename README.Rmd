@@ -17,16 +17,19 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![CRAN status](https://www.r-pkg.org/badges/version/emodnet.wcs)](https://CRAN.R-project.org/package=emodnet.wcs) [![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/branch/main/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs?branch=master)
-[![Codecov test coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) 
+[![CRAN status](https://www.r-pkg.org/badges/version/emodnet.wcs)](https://CRAN.R-project.org/package=emodnet.wcs) 
 [![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs)
 <!-- badges: end -->
 
 The goal of emodnet.wcs is to allow interrogation of and access to EMODnet geographic raster data in R though the [EMODnet Web Coverage Services](https://github.com/EMODnet/Web-Service-Documentation#web-coverage-service-wcs).
-See below for available Services.
+EMODnet raster datasets, such as habitat maps or bathymetry, are available through Web Coverage Services (WCS). 
+These data are continuous, gridded, and often used for spatial visualization or environmental modeling. 
+See below for available Services (data sources).
 This package was developed by Sheffield University as part of EMODnet Biology WP4.
 
-[Web Coverage services (WCS)](https://www.ogc.org/standards/wcs)is a standard created by the OGC that refers to the receiving of geospatial information as 'coverages': digital geospatial information representing space-varying phenomena.
+[Web Coverage services (WCS)](https://www.ogc.org/standards/wcs) is a standard created by the OGC that refers to the receiving of geospatial information as 'coverages': digital geospatial information representing space-varying phenomena.
 One can think of it as Web Feature Service (WFS) for raster data.
 It gets the 'source code' of the map, but in this case it's not raw vectors but raw imagery.
 
@@ -56,7 +59,7 @@ set the `"emodnet.wcs.quiet"` option to `TRUE`.
 options("emodnet.wcs.quiet" = TRUE)
 ```
 
-## Available services
+## Available services (data sources)
 
 All available services are contained in the tibble returned by `emdn_wcs()`.
 
@@ -65,22 +68,19 @@ All available services are contained in the tibble returned by `emdn_wcs()`.
 knitr::kable(emdn_wcs())
 ```
 
-To explore available services in your R session use:
 
-```r
-View(emdn_wcs())
-```
+To explore available services you can use `View()` or your usual way to explore `data.frames`.
 
-## Create Service Client
+## Connect to a data source: create service client
 
 Create new WCS Client.
-Specify the service using the`service` argument.
+Specify the service using the `service` argument.
 
 ```{r wcs-init}
 wcs <- emdn_init_wcs_client(service = "biology")
 ```
 
-## Get metadata about a WCS service and available coverages
+## Get metadata about a service and available coverages
 
 Get service level and a subset of coverage level metadata, compiled for easy review by supplying a `WCSClient` object to `emdn_get_wcs_info`.
 
@@ -116,21 +116,28 @@ emdn_get_coverage_ids(wcs)
 
 For more details, please refer to the [Getting metadata about Services \& Coverages](https://emodnet.github.io/emodnet.wcs/articles/metadata.html) article in the `emodnet.wcs` online documentation.
 
-## Downloading Coverages
+## Download coverages
 
 The package also provides a function to download full or subsets of coverages from emodnet.wcs services.
 
 The following example downloads a spatial subset of a coverage using a bounding box.
 
 ```{r}
+wcs <- emdn_init_wcs_client(service = "human_activities")
+
 cov <- emdn_get_coverage(
   wcs,
-  coverage_id = "Emodnetbio__aca_spp_19582016_L1",
-  bbox = c(xmin = 0, ymin = 40, xmax = 5, ymax = 45),
-  nil_values_as_na = TRUE
+  # pseudomercator (EPSG 3857) in this case:
+  crs = "EPSG:3857",
+  bbox = c(
+    xmin = 484177.9,
+    ymin = 6957617.3,
+    xmax = 1035747,
+    ymax = 7308616.2
+  ),
+  coverage_id = "emodnet__vesseldensity_all",
+  nil_values_as_na = FALSE
 )
-
-cov
 ```
 
 ```{r}
@@ -151,6 +158,53 @@ To cite emodnet.wcs, please use the output from `citation(package = "emodnet.wcs
 ```{r}
 citation(package = "emodnet.wcs")
 ```
+
+
+## Unlock the Full Potential of the EMODnet Web Services: Access Feature and Gridded datasets.
+
+### Access EMODnet's Web Feature Service data through emodnet.wfs
+
+The goal of [emodnet.wfs](https://docs.ropensci.org/emodnet.wfs) is to allow interrogation of and access to [EMODnet's, European Marine Observation and Data Network, geographic vector data](https://emodnet.ec.europa.eu/en/emodnet-web-service-documentation#inline-nav-3) in R through the [EMODnet Web Feature Services](https://emodnet.ec.europa.eu/en/data-0). 
+[Web Feature services (WFS)](https://www.ogc.org/standards/wfs/) represent a change in the way geographic information is created, modified and exchanged on the Internet and offer direct fine-grained access to geographic information at the feature and feature property level. 
+Features are representation of geographic entities, such as a coastlines, marine protected areas, offshore platforms, or fishing areas. In WFS, features have geometry (spatial information) and attributes (descriptive data).
+emodnet.wfs aims at offering an user-friendly interface to this rich data.
+
+### Access EMODnet gridded and tabular datasets through the ERDDAP Server and rerddap in R
+
+Both WFS and WCS EMODnet services are based on a federated system: each EMODnet thematic lot manages their servers and data, ensuring that their data are exposed both via WFS and WCS. The twin R packages `emodnet.wfs` and `emodnet.wcs` simplify the access to all the entry points by collecting them in single places, which are the packages themselves. 
+
+In contrast, the [EMODnet ERDDAP Server](https://erddap.emodnet.eu) is centrally managed by the EMODnet Central Portal, offering a single access point to all gridded and tabular datasets. ERDDAP simplifies access to datasets such as digital terrain models, vessel density or environmental data. It is particularly suited for large-scale, multidimensional data analysis. In R, the `rerddap` package allows users to query and subset ERDDAP data programmatically, enabling efficient analysis and integration into workflows. For example, researchers can retrieve datasets on vessel density. 
+
+```{r rerddap}
+# install.packages("rerrdap")
+library(rerddap)
+
+# This is the url where the EMODnet ERDDAP server is located
+erddap_url <- "https://erddap.emodnet.eu/erddap/"
+
+# Inspect all available datasets
+ed_datasets(url = erddap_url)
+
+# Find datasets with the key words "vessel density"
+ed_search(query = "vessel density", url = erddap_url)
+
+# Inspect more info about the vessel density dataset, using its identifier
+human_activities_data_info <- info(
+  datasetid = "humanactivities_9f8a_3389_f08a",
+  url = erddap_url
+)
+human_activities_data_info
+
+# Retrieve the vessel density at a particular time period
+year_2020_gridded_data <- griddap(
+  datasetx = human_activities_data_info,
+  time = c("2020-03-18", "2020-03-19")
+)
+head(year_2020_gridded_data$data)
+```
+
+More functionalities are available through `rerddap`. Feel free to explore the [rerddap website](https://docs.ropensci.org/rerddap/) to find out what else can you do with the EMODnet datasets in ERDDAP.
+
 
 ## Code of Conduct
 

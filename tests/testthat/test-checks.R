@@ -118,3 +118,64 @@ test_that("validate rangesubset works", {
     validate_rangesubset(summary[[1]], "erroneous_rangetype")
   )
 })
+
+test_that("check_cov_contains_bbox() works", {
+  withr::local_options(emodnet.wcs.quiet = FALSE)
+  vcr::local_cassette("cov-checks")
+
+  wcs <- emdn_init_wcs_client(service = "biology")
+  coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
+
+  cov <- emdn_get_coverage(
+    wcs,
+    coverage_id = coverage_id,
+    bbox = c(
+      xmin = 0L,
+      ymin = 40L,
+      xmax = 5L,
+      ymax = 45L
+    )
+  )
+  expect_s4_class(cov, "SpatRaster")
+
+  expect_snapshot(
+    error = TRUE,
+    {
+      cov <- emdn_get_coverage(
+        wcs,
+        coverage_id = coverage_id,
+        bbox = c(
+          xmin = -80.0,
+          ymin = 76.0,
+          xmax = -79.0,
+          ymax = 77.0
+        )
+      )
+    }
+  )
+})
+
+
+test_that("check_cov_contains_bbox() works -- user supplied bbox with crs", {
+  # https://github.com/EMODnet/emodnet.wcs/issues/95
+  withr::local_options(emodnet.wcs.quiet = FALSE)
+  vcr::local_cassette("cov-checks2")
+
+  wcs <- emdn_init_wcs_client(service = "human_activities")
+  coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
+
+  cov <- emdn_get_coverage(
+    wcs,
+    # pseudomercator (EPSG 3857) in this case:
+    crs = "EPSG:3857",
+    bbox = c(
+      xmin = 484177.9,
+      ymin = 6957617.3,
+      xmax = 1035747,
+      ymax = 7308616.2
+    ),
+    coverage_id = "emodnet__vesseldensity_all",
+    nil_values_as_na = FALSE
+  )
+  expect_s4_class(cov, "SpatRaster")
+})

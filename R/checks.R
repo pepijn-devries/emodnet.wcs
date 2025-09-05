@@ -140,7 +140,7 @@ check_cov_contains_bbox <- function(summary, bbox, crs) {
         )
       )
     }
-    cli::cli_warn(message)
+    cli::cli_abort(message)
   }
 }
 

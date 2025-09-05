@@ -123,7 +123,9 @@ test_that("check_cov_contains_bbox() works", {
   withr::local_options(emodnet.wcs.quiet = FALSE)
   vcr::local_cassette("cov-checks")
 
+  wcs <- emdn_init_wcs_client(service = "biology")
   coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
+
   cov <- emdn_get_coverage(
     wcs,
     coverage_id = coverage_id,
@@ -134,30 +136,21 @@ test_that("check_cov_contains_bbox() works", {
       ymax = 45L
     )
   )
+  expect_s4_class(cov, "SpatRaster")
 
   expect_snapshot(
-    cov <- emdn_get_coverage(
-      wcs,
-      coverage_id = coverage_id,
-      bbox = c(
-        xmin = 0L,
-        ymin = 40L,
-        xmax = 5L,
-        ymax = 45L
+    error = TRUE,
+    {
+      cov <- emdn_get_coverage(
+        wcs,
+        coverage_id = coverage_id,
+        bbox = c(
+          xmin = -80.0,
+          ymin = 76.0,
+          xmax = -79.0,
+          ymax = 77.0
+        )
       )
-    )
-  )
-
-  expect_snapshot(
-    cov <- emdn_get_coverage(
-      wcs,
-      coverage_id = coverage_id,
-      bbox = c(
-        xmin = -80.0,
-        ymin = 76.0,
-        xmax = -79.0,
-        ymax = 77.0
-      )
-    )
+    }
   )
 })

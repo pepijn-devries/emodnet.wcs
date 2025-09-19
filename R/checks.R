@@ -172,13 +172,6 @@ validate_bbox <- function(bbox) {
 
   checkmate::assert_true(bbox["ymin"] < bbox["ymax"])
   checkmate::assert_true(bbox["xmin"] < bbox["xmax"])
-
-  ows4R::OWSUtils$toBBOX(
-    xmin = bbox["xmin"],
-    xmax = bbox["xmax"],
-    ymin = bbox["ymin"],
-    ymax = bbox["ymax"]
-  )
 }
 
 validate_rangesubset <- function(summary, rangesubset) {

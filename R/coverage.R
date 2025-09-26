@@ -1,3 +1,5 @@
+#' Download data (coverage)
+#'
 #' Get a coverage from an EMODnet WCS Service
 #'
 #' @inheritParams emdn_get_coverage_info

@@ -2,7 +2,7 @@
 % Please edit documentation in R/client.R
 \name{emdn_init_wcs_client}
 \alias{emdn_init_wcs_client}
-\title{Initialise an EMODnet WCS client}
+\title{Connect to a data source (service)}
 \usage{
 emdn_init_wcs_client(
   service,

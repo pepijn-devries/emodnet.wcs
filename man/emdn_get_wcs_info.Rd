@@ -4,7 +4,9 @@
 \alias{emdn_get_wcs_info}
 \alias{emdn_get_wcs_info_all}
 \alias{emdn_get_coverage_info}
-\title{Get EMODnet WCS service and available coverage information.}
+\title{Metadata about data available from the different services:
+data (coverage) from a data source (service),
+metadata on coverage from a service.}
 \usage{
 emdn_get_wcs_info(
   wcs = NULL,

@@ -1,8 +1,8 @@
 # ---- wcs utils ----
 
-#' Get metadata objects from a `WCSClient` object.
+#' Service and coverage level metadata
 #'
-#' Get metadata objects from a `WCSClient` object. `<WCSCoverageSummary>`
+#' @description Get metadata objects from a `WCSClient` object. `<WCSCoverageSummary>`
 #' in particular can be used to extract further metadata about individual
 #' coverages.
 #'
@@ -150,7 +150,9 @@ emdn_get_coverage_dim_coefs <- function(
 
 # ---- summary utils ----
 
-#' Get coverage metadata from a `<WCSCoverageSummary>` object.
+#' Individual coverage level metadata
+#'
+#' @description Get coverage metadata from a `<WCSCoverageSummary>` object.
 #'
 #' @param summary a `<WCSCoverageSummary>` object.
 #' @param format character string. Coverage dimension info output format.

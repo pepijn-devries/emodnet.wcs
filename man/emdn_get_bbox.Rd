@@ -16,7 +16,7 @@
 \alias{emdn_get_dimensions_names}
 \alias{emdn_get_dimensions_n}
 \alias{emdn_get_dimension_types}
-\title{Get coverage metadata from a \verb{<WCSCoverageSummary>} object.}
+\title{Individual coverage level metadata}
 \usage{
 emdn_get_bbox(summary)
 

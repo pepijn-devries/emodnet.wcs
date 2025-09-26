@@ -20,7 +20,7 @@ navbar:
 
 
 reference:
-- title: Data sources
+- title: Download information about data sources
   contents:
   - emdn_wcs
   - emdn_init_wcs_client
@@ -32,7 +32,7 @@ reference:
   - emdn_get_coverage_ids
   - emdn_has_dimension
   - emdn_get_coverage_dim_coefs
-- title: Coverage level metadata
+- title: Download coverage level metadata
   contents:
   - emdn_get_bbox
   - emdn_get_WGS84bbox
@@ -49,6 +49,6 @@ reference:
   - emdn_get_dimensions_names
   - emdn_get_dimensions_n
   - emdn_get_dimension_types
-- title: Data (coverages)
+- title: Download data (coverages)
   contents:
   - emdn_get_coverage

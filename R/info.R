@@ -85,6 +85,10 @@
   )
 }
 
+#' Metadata about data available from the different services:
+#' data (coverage) from a data source (service),
+#' metadata on coverage from a service.
+#'
 #' Get EMODnet WCS service and available coverage information.
 #'
 #' @param wcs A `WCSClient` R6 object, created with function [`emdn_init_wcs_client`].

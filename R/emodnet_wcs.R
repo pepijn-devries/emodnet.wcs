@@ -9,7 +9,9 @@
     tibble::as_tibble()
 }
 
-#' Available EMODnet Web Coverage Services
+#' Which data sources (services) are available?
+#'
+#' @description Available EMODnet Web Coverage Services
 #'
 #' @return Tibble of available EMODnet Web Coverage Services
 #' @examples

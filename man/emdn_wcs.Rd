@@ -2,7 +2,7 @@
 % Please edit documentation in R/emodnet_wcs.R
 \name{emdn_wcs}
 \alias{emdn_wcs}
-\title{Available EMODnet Web Coverage Services}
+\title{Which data sources (services) are available?}
 \usage{
 emdn_wcs()
 }

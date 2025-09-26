@@ -1,4 +1,6 @@
-#' Initialise an EMODnet WCS client
+#' Connect to a data source (service)
+#'
+#' @description Initialise an EMODnet WCS client
 #'
 #' @param service the EMODnet OGC WCS service name.
 #' For available services, see [`emdn_wcs()`].

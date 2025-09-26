@@ -2,7 +2,7 @@
 % Please edit documentation in R/coverage.R
 \name{emdn_get_coverage}
 \alias{emdn_get_coverage}
-\title{Get a coverage from an EMODnet WCS Service}
+\title{Download data (coverage)}
 \usage{
 emdn_get_coverage(
   wcs = NULL,

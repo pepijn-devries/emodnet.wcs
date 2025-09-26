@@ -6,7 +6,7 @@
 \alias{emdn_get_coverage_ids}
 \alias{emdn_has_dimension}
 \alias{emdn_get_coverage_dim_coefs}
-\title{Get metadata objects from a \code{WCSClient} object.}
+\title{Service and coverage level metadata}
 \usage{
 emdn_get_coverage_summaries(wcs, coverage_ids)
 

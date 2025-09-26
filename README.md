@@ -50,6 +50,9 @@ Load the library
 
 ``` r
 library(emodnet.wcs)
+#> Loading ISO 19139 XML schemas...
+#> Loading ISO 19115-3 XML schemas...
+#> Loading ISO 19139 codelists...
 ```
 
 If you want to avoid reading messages from emodnet.wcs such as “WCS
@@ -60,7 +63,7 @@ client created successfully”, set the `"emodnet.wcs.quiet"` option to
 options("emodnet.wcs.quiet" = TRUE)
 ```
 
-## Available services (data sources)
+## Available data sources (services)
 
 All available services are contained in the tibble returned by
 `emdn_wcs()`.
@@ -82,11 +85,11 @@ Create new WCS Client. Specify the service using the `service` argument.
 ``` r
 wcs <- emdn_init_wcs_client(service = "biology")
 #> ✔ WCS client created succesfully
-#> ℹ Service: <]8;;https://geo.vliz.be/geoserver/Emodnetbio/wcshttps://geo.vliz.be/geoserver/Emodnetbio/wcs]8;;>
+#> ℹ Service: <https://geo.vliz.be/geoserver/Emodnetbio/wcs>
 #> ℹ Service: "2.0.1"
 ```
 
-## Get metadata about a service and available coverages
+## Get metadata about a service and available data (coverages)
 
 Get service level and a subset of coverage level metadata, compiled for
 easy review by supplying a `WCSClient` object to `emdn_get_wcs_info`.
@@ -119,18 +122,19 @@ emdn_get_wcs_info(wcs)
 #> 
 #> $coverage_details
 #> # A tibble: 10 × 9
-#>    coverage_id                                     dim_n dim_names extent crs   wgs84_bbox temporal_extent vertical_extent subtype
-#>    <chr>                                           <int> <chr>     <chr>  <chr> <chr>      <chr>           <chr>           <chr>  
-#>  1 Emodnetbio__ratio_large_to_small_19582016_L1_e…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  2 Emodnetbio__aca_spp_19582016_L1                     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  3 Emodnetbio__cal_fin_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  4 Emodnetbio__cal_hel_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  5 Emodnetbio__met_luc_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  6 Emodnetbio__oit_spp_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  7 Emodnetbio__tem_lon_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  8 Emodnetbio__chli_19582016_L1_err                    3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  9 Emodnetbio__tot_lar_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#> 10 Emodnetbio__tot_sma_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
+#>    coverage_id           dim_n dim_names extent crs   wgs84_bbox temporal_extent
+#>    <chr>                 <int> <chr>     <chr>  <chr> <chr>      <chr>          
+#>  1 Emodnetbio__ratio_la…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  2 Emodnetbio__aca_spp_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  3 Emodnetbio__cal_fin_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  4 Emodnetbio__cal_hel_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  5 Emodnetbio__met_luc_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  6 Emodnetbio__oit_spp_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  7 Emodnetbio__tem_lon_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  8 Emodnetbio__chli_195…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  9 Emodnetbio__tot_lar_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#> 10 Emodnetbio__tot_sma_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#> # ℹ 2 more variables: vertical_extent <chr>, subtype <chr>
 ```
 
 Info can also be extracted using a service name instead of a `WCSClient`
@@ -139,7 +143,7 @@ object.
 ``` r
 emdn_get_wcs_info(service = "biology")
 #> ✔ WCS client created succesfully
-#> ℹ Service: <]8;;https://geo.vliz.be/geoserver/Emodnetbio/wcshttps://geo.vliz.be/geoserver/Emodnetbio/wcs]8;;>
+#> ℹ Service: <https://geo.vliz.be/geoserver/Emodnetbio/wcs>
 #> ℹ Service: "2.0.1"
 #> $data_source
 #> [1] "emodnet_wcs"
@@ -167,18 +171,19 @@ emdn_get_wcs_info(service = "biology")
 #> 
 #> $coverage_details
 #> # A tibble: 10 × 9
-#>    coverage_id                                     dim_n dim_names extent crs   wgs84_bbox temporal_extent vertical_extent subtype
-#>    <chr>                                           <int> <chr>     <chr>  <chr> <chr>      <chr>           <chr>           <chr>  
-#>  1 Emodnetbio__ratio_large_to_small_19582016_L1_e…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  2 Emodnetbio__aca_spp_19582016_L1                     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  3 Emodnetbio__cal_fin_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  4 Emodnetbio__cal_hel_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  5 Emodnetbio__met_luc_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  6 Emodnetbio__oit_spp_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  7 Emodnetbio__tem_lon_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  8 Emodnetbio__chli_19582016_L1_err                    3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#>  9 Emodnetbio__tot_lar_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
-#> 10 Emodnetbio__tot_sma_19582016_L1_err                 3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:… NA              Rectif…
+#>    coverage_id           dim_n dim_names extent crs   wgs84_bbox temporal_extent
+#>    <chr>                 <int> <chr>     <chr>  <chr> <chr>      <chr>          
+#>  1 Emodnetbio__ratio_la…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  2 Emodnetbio__aca_spp_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  3 Emodnetbio__cal_fin_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  4 Emodnetbio__cal_hel_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  5 Emodnetbio__met_luc_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  6 Emodnetbio__oit_spp_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  7 Emodnetbio__tem_lon_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  8 Emodnetbio__chli_195…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#>  9 Emodnetbio__tot_lar_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#> 10 Emodnetbio__tot_sma_…     3 lat(deg)… -75.0… EPSG… -75.05, 3… 1958-02-16T01:…
+#> # ℹ 2 more variables: vertical_extent <chr>, subtype <chr>
 ```
 
 Get more detailed coverage metadata about specific coverage.
@@ -189,11 +194,14 @@ emdn_get_coverage_info(
   coverage_ids = "Emodnetbio__aca_spp_19582016_L1"
 )
 #> # A tibble: 1 × 21
-#>   data_source service_name        service_url coverage_id band_description band_uom constraint nil_value dim_n dim_names grid_size
-#>   <chr>       <chr>               <chr>       <chr>       <chr>            <chr>    <chr>          <dbl> <int> <chr>     <chr>    
-#> 1 emodnet_wcs https://geo.vliz.b… biology     Emodnetbio… relative_abunda… W.m-2.S… -3.402823…   9.97e36     3 lat(deg)… 951x401  
-#> # ℹ 10 more variables: resolution <chr>, extent <chr>, crs <chr>, wgs84_extent <chr>, temporal_extent <chr>,
-#> #   vertical_extent <chr>, subtype <chr>, fn_seq_rule <chr>, fn_start_point <chr>, fn_axis_order <chr>
+#>   data_source service_name     service_url coverage_id band_description band_uom
+#>   <chr>       <chr>            <chr>       <chr>       <chr>            <chr>   
+#> 1 emodnet_wcs https://geo.vli… biology     Emodnetbio… relative_abunda… W.m-2.S…
+#> # ℹ 15 more variables: constraint <chr>, nil_value <dbl>, dim_n <int>,
+#> #   dim_names <chr>, grid_size <chr>, resolution <chr>, extent <chr>,
+#> #   crs <chr>, wgs84_extent <chr>, temporal_extent <chr>,
+#> #   vertical_extent <chr>, subtype <chr>, fn_seq_rule <chr>,
+#> #   fn_start_point <chr>, fn_axis_order <chr>
 ```
 
 > **Note**
@@ -208,18 +216,23 @@ metadata in more usable forms. e.g.
 
 ``` r
 emdn_get_coverage_ids(wcs)
-#>  [1] "Emodnetbio__ratio_large_to_small_19582016_L1_err" "Emodnetbio__aca_spp_19582016_L1"                 
-#>  [3] "Emodnetbio__cal_fin_19582016_L1_err"              "Emodnetbio__cal_hel_19582016_L1_err"             
-#>  [5] "Emodnetbio__met_luc_19582016_L1_err"              "Emodnetbio__oit_spp_19582016_L1_err"             
-#>  [7] "Emodnetbio__tem_lon_19582016_L1_err"              "Emodnetbio__chli_19582016_L1_err"                
-#>  [9] "Emodnetbio__tot_lar_19582016_L1_err"              "Emodnetbio__tot_sma_19582016_L1_err"
+#>  [1] "Emodnetbio__ratio_large_to_small_19582016_L1_err"
+#>  [2] "Emodnetbio__aca_spp_19582016_L1"                 
+#>  [3] "Emodnetbio__cal_fin_19582016_L1_err"             
+#>  [4] "Emodnetbio__cal_hel_19582016_L1_err"             
+#>  [5] "Emodnetbio__met_luc_19582016_L1_err"             
+#>  [6] "Emodnetbio__oit_spp_19582016_L1_err"             
+#>  [7] "Emodnetbio__tem_lon_19582016_L1_err"             
+#>  [8] "Emodnetbio__chli_19582016_L1_err"                
+#>  [9] "Emodnetbio__tot_lar_19582016_L1_err"             
+#> [10] "Emodnetbio__tot_sma_19582016_L1_err"
 ```
 
 For more details, please refer to the [Getting metadata about Services &
 Coverages](https://emodnet.github.io/emodnet.wcs/articles/metadata.html)
 article in the `emodnet.wcs` online documentation.
 
-## Download coverages
+## Download data (coverages)
 
 The package also provides a function to download full or subsets of
 coverages from emodnet.wcs services.
@@ -230,7 +243,7 @@ bounding box.
 ``` r
 wcs <- emdn_init_wcs_client(service = "human_activities")
 #> ✔ WCS client created succesfully
-#> ℹ Service: <]8;;https://ows.emodnet-humanactivities.eu/wcshttps://ows.emodnet-humanactivities.eu/wcs]8;;>
+#> ℹ Service: <https://ows.emodnet-humanactivities.eu/wcs>
 #> ℹ Service: "2.0.1"
 
 cov <- emdn_get_coverage(
@@ -246,7 +259,7 @@ cov <- emdn_get_coverage(
   coverage_id = "emodnet__vesseldensity_all",
   nil_values_as_na = FALSE
 )
-#> ── Downloading coverage "emodnet__vesseldensity_all" ─────────────────────────────────────────────────────────────────────────────
+#> ── Downloading coverage "emodnet__vesseldensity_all" ───────────────────────────
 #> No encoding supplied: defaulting to UTF-8.
 #> <GMLEnvelope>
 #> ....|-- lowerCorner: 484177.9 6957617.3 "2017-01-01T00:00:00"
@@ -274,10 +287,13 @@ To cite emodnet.wcs, please use the output from
 citation(package = "emodnet.wcs")
 #> To cite package 'emodnet.wcs' in publications use:
 #> 
-#>   Krystalli A (2025). _emodnet.wcs: Access EMODnet Web Coverage Service data through R_. R package version
-#>   0.0.0.9012. Integrated data products created under the European Marine Observation Data Network (EMODnet) Biology
-#>   project (EASME/EMFF/2017/1.3.1.2/02/SI2.789013), funded by the European Union under Regulation (EU) No 508/2014 of
-#>   the European Parliament and of the Council of 15 May 2014 on the European Maritime and Fisheries Fund,
+#>   Krystalli A (2025). _emodnet.wcs: Access EMODnet Web Coverage Service
+#>   data through R_. R package version 0.0.0.9012. Integrated data
+#>   products created under the European Marine Observation Data Network
+#>   (EMODnet) Biology project (EASME/EMFF/2017/1.3.1.2/02/SI2.789013),
+#>   funded by the European Union under Regulation (EU) No 508/2014 of the
+#>   European Parliament and of the Council of 15 May 2014 on the European
+#>   Maritime and Fisheries Fund,
 #>   <https://github.com/EMODnet/emodnet.wcs>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -341,39 +357,40 @@ erddap_url <- "https://erddap.emodnet.eu/erddap/"
 # Inspect all available datasets
 ed_datasets(url = erddap_url)
 #> # A tibble: 8 × 16
-#>   griddap Subset     tabledap Make.A.Graph wms   files Title Summary FGDC  ISO.19115 Info  Background.Info RSS   Email Institution
-#>   <chr>   <chr>      <chr>    <chr>        <chr> <chr> <chr> <chr>   <chr> <chr>     <chr> <chr>           <chr> <chr> <chr>      
-#> 1 ""      "/erddap/… /erddap… /erddap/tab… ""    ""    * Th… "This … ""    ""        /erd… https://erddap… ""    ""    VLIZ       
-#> 2 ""      ""         /erddap… /erddap/tab… ""    "/er… EMOD… "The d… ""    ""        /erd… https://www.se… "htt… "/er… On behalf …
-#> 3 ""      ""         /erddap… /erddap/tab… ""    "/er… EMOD… "The d… ""    ""        /erd… https://www.se… "htt… "/er… On behalf …
-#> 4 ""      "/erddap/… /erddap… /erddap/tab… ""    "/er… EMOD… "The d… "/er… "/erddap… /erd… https://www.se… "htt… "/er… On behalf …
-#> 5 ""      ""         /erddap… /erddap/tab… ""    "/er… Pres… "The p… "/er… "/erddap… /erd… https://www.em… "htt… "/er… DELTARES   
-#> 6 ""      ""         /erddap… /erddap/tab… ""    ""    PSMS… "Perma… ""    ""        /erd… https://www.ps… "htt… "/er… PSMSL      
-#> 7 ""      ""         /erddap… /erddap/tab… ""    "/er… PSMS… "Perma… ""    ""        /erd… https://www.ps… "htt… "/er… PSMSL      
-#> 8 ""      "/erddap/… /erddap… /erddap/tab… ""    "/er… TAO/… "This … "/er… "/erddap… /erd… https://www.pm… "htt… "/er… NOAA PMEL,…
-#> # ℹ 1 more variable: Dataset.ID <chr>
+#>   griddap Subset tabledap Make.A.Graph wms   files Title Summary FGDC  ISO.19115
+#>   <chr>   <chr>  <chr>    <chr>        <chr> <chr> <chr> <chr>   <chr> <chr>    
+#> 1 ""      "/erd… /erddap… /erddap/tab… ""    ""    * Th… "This … ""    ""       
+#> 2 ""      ""     /erddap… /erddap/tab… ""    "/er… EMOD… "The d… ""    ""       
+#> 3 ""      ""     /erddap… /erddap/tab… ""    "/er… EMOD… "The d… ""    ""       
+#> 4 ""      "/erd… /erddap… /erddap/tab… ""    "/er… EMOD… "The d… "/er… "/erddap…
+#> 5 ""      ""     /erddap… /erddap/tab… ""    "/er… Pres… "The p… "/er… "/erddap…
+#> 6 ""      ""     /erddap… /erddap/tab… ""    ""    PSMS… "Perma… ""    ""       
+#> 7 ""      ""     /erddap… /erddap/tab… ""    "/er… PSMS… "Perma… ""    ""       
+#> 8 ""      "/erd… /erddap… /erddap/tab… ""    "/er… TAO/… "This … "/er… "/erddap…
+#> # ℹ 6 more variables: Info <chr>, Background.Info <chr>, RSS <chr>,
+#> #   Email <chr>, Institution <chr>, Dataset.ID <chr>
 
 # Find datasets with the key words "vessel density"
 ed_search(query = "vessel density", url = erddap_url)
 #> # A tibble: 16 × 2
-#>    title                                                     dataset_id                    
-#>    <chr>                                                     <chr>                         
-#>  1 Vessel Density                                            humanactivities_9f8a_3389_f08a
-#>  2 Vessel Density                                            humanactivities_e929_c26d_18a2
-#>  3 Vessel traffic density, 2019, All                         EMODPACE_VD_All               
-#>  4 Vessel traffic density, 2019, Cargo                       EMODPACE_VD_09_Cargo          
-#>  5 Vessel traffic density, 2019, Dredging or underwater ops  EMODPACE_VD_03_Dredging       
-#>  6 Vessel traffic density, 2019, Fishing                     EMODPACE_VD_01_Fishing        
-#>  7 Vessel traffic density, 2019, High Speed craft            EMODPACE_VD_06_High           
-#>  8 Vessel traffic density, 2019, Miliary and law enforcement EMODPACE_VD_11_Military       
-#>  9 Vessel traffic density, 2019, Other                       EMODPACE_VD_00_Other          
-#> 10 Vessel traffic density, 2019, Passenger                   EMODPACE_VD_08_Passenger      
-#> 11 Vessel traffic density, 2019, Pleasure craft              EMODPACE_VD_05_Pleasure       
-#> 12 Vessel traffic density, 2019, Sailing                     EMODPACE_VD_04_Sailing        
-#> 13 Vessel traffic density, 2019, Service                     EMODPACE_VD_02_Service        
-#> 14 Vessel traffic density, 2019, Tanker                      EMODPACE_VD_10_Tanker         
-#> 15 Vessel traffic density, 2019, Tug and Towing              EMODPACE_VD_07_Tug            
-#> 16 Vessel traffic density, 2019, Unknown                     EMODPACE_VD_12_Unknown
+#>    title                                                     dataset_id         
+#>    <chr>                                                     <chr>              
+#>  1 Vessel Density                                            humanactivities_9f…
+#>  2 Vessel Density                                            humanactivities_e9…
+#>  3 Vessel traffic density, 2019, All                         EMODPACE_VD_All    
+#>  4 Vessel traffic density, 2019, Cargo                       EMODPACE_VD_09_Car…
+#>  5 Vessel traffic density, 2019, Dredging or underwater ops  EMODPACE_VD_03_Dre…
+#>  6 Vessel traffic density, 2019, Fishing                     EMODPACE_VD_01_Fis…
+#>  7 Vessel traffic density, 2019, High Speed craft            EMODPACE_VD_06_High
+#>  8 Vessel traffic density, 2019, Miliary and law enforcement EMODPACE_VD_11_Mil…
+#>  9 Vessel traffic density, 2019, Other                       EMODPACE_VD_00_Oth…
+#> 10 Vessel traffic density, 2019, Passenger                   EMODPACE_VD_08_Pas…
+#> 11 Vessel traffic density, 2019, Pleasure craft              EMODPACE_VD_05_Ple…
+#> 12 Vessel traffic density, 2019, Sailing                     EMODPACE_VD_04_Sai…
+#> 13 Vessel traffic density, 2019, Service                     EMODPACE_VD_02_Ser…
+#> 14 Vessel traffic density, 2019, Tanker                      EMODPACE_VD_10_Tan…
+#> 15 Vessel traffic density, 2019, Tug and Towing              EMODPACE_VD_07_Tug 
+#> 16 Vessel traffic density, 2019, Unknown                     EMODPACE_VD_12_Unk…
 
 # Inspect more info about the vessel density dataset, using its identifier
 human_activities_data_info <- info(

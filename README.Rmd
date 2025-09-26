@@ -59,7 +59,7 @@ set the `"emodnet.wcs.quiet"` option to `TRUE`.
 options("emodnet.wcs.quiet" = TRUE)
 ```
 
-## Available services (data sources)
+## Available data sources (services)
 
 All available services are contained in the tibble returned by `emdn_wcs()`.
 
@@ -80,7 +80,7 @@ Specify the service using the `service` argument.
 wcs <- emdn_init_wcs_client(service = "biology")
 ```
 
-## Get metadata about a service and available coverages
+## Get metadata about a service and available data (coverages)
 
 Get service level and a subset of coverage level metadata, compiled for easy review by supplying a `WCSClient` object to `emdn_get_wcs_info`.
 
@@ -116,7 +116,7 @@ emdn_get_coverage_ids(wcs)
 
 For more details, please refer to the [Getting metadata about Services \& Coverages](https://emodnet.github.io/emodnet.wcs/articles/metadata.html) article in the `emodnet.wcs` online documentation.
 
-## Download coverages
+## Download data (coverages)
 
 The package also provides a function to download full or subsets of coverages from emodnet.wcs services.
 

@@ -39,6 +39,11 @@ test_that("No internet handled", {
   expect_snapshot(emdn_init_wcs_client("biology"), error = TRUE)
 })
 
+test_that("Error behavior", {
+  local_mocked_bindings(create_client = function(...) stop("bla"))
+  expect_snapshot(emdn_init_wcs_client("biology"), error = TRUE)
+})
+
 
 test_that("Services down handled", {
   rlang::local_interactive()

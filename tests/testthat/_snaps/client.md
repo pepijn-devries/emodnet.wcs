@@ -39,6 +39,16 @@
       Error in `emdn_init_wcs_client()`:
       ! There is no internet connection.
 
+# Error behavior
+
+    Code
+      emdn_init_wcs_client("biology")
+    Condition
+      Error in `check_service()`:
+      ! WCS client creation failed.
+      i Service: "https://geo.vliz.be/geoserver/Emodnetbio/wcs"
+      You could raise an issue in <https://github.com/EMODnet/emodnet.wcs/issues>
+
 # Services down handled
 
     Code

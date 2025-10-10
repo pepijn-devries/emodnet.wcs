@@ -38,31 +38,32 @@ emdn_init_wcs_client <- function(
   }
   service_url <- get_service_url(service)
 
-  create_client <- function() {
-    wcs <- suppressWarnings(ows4R::WCSClient$new(
-      service_url,
-      serviceVersion = service_version,
-      headers = c(
-        "User-Agent" = "emodnet.wcs R package https://github.com/EMODnet/emodnet.wcs"
-      ),
-      logger = logger
-    ))
-
-    check_wcs(wcs)
-
-    cli_alert_success("WCS client created succesfully")
-    cli_alert_info("Service: {.url {wcs$getUrl()}}")
-    cli_alert_info("Service: {.val {wcs$getVersion()}}")
-
-    check_wcs_version(wcs)
-
-    wcs
-  }
-
   tryCatch(
-    create_client(),
+    create_client(service_url, service_version, logger),
     error = function(e) {
       check_service(service_url)
     }
   )
+}
+
+
+create_client <- function(service_url, service_version, logger) {
+  wcs <- suppressWarnings(ows4R::WCSClient$new(
+    service_url,
+    serviceVersion = service_version,
+    headers = c(
+      "User-Agent" = "emodnet.wcs R package https://github.com/EMODnet/emodnet.wcs"
+    ),
+    logger = logger
+  ))
+
+  check_wcs(wcs)
+
+  cli_alert_success("WCS client created succesfully")
+  cli_alert_info("Service: {.url {wcs$getUrl()}}")
+  cli_alert_info("Service: {.val {wcs$getVersion()}}")
+
+  check_wcs_version(wcs)
+
+  wcs
 }

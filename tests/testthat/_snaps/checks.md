@@ -59,3 +59,11 @@
       Error in `check_cov_contains_bbox()`:
       ! `bbox` boundaries lie outside coverage extent. No overlapping data to download.
 
+# check_service() works
+
+    Code
+      check_service(get_service_url("biology"))
+    Condition
+      Error in `httr2::req_perform()`:
+      ! HTTP 403 Forbidden.
+

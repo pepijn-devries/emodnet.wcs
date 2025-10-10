@@ -62,10 +62,7 @@ check_service <- function(service_url) {
     )
   }
 
-  request <- service_url |>
-    httr2::request() |>
-    httr2::req_url_query(request = "GetCapabilities") |>
-    httr2::req_perform()
+  request <- request_service(service_url)
 
   if (httr2::resp_status(request) != 200) {
     message <- c(
@@ -81,6 +78,13 @@ check_service <- function(service_url) {
   }
 
   cli::cli_abort(message)
+}
+
+request_service <- function(service_url) {
+  service_url |>
+    httr2::request() |>
+    httr2::req_url_query(request = "GetCapabilities") |>
+    httr2::req_perform()
 }
 
 check_coverages <- function(wcs, coverages) {

@@ -165,3 +165,12 @@ test_that("check_cov_contains_bbox() works -- user supplied bbox with crs", {
   )
   expect_s4_class(cov, "SpatRaster")
 })
+
+test_that("check_service() works", {
+  httr2::local_mocked_responses(function(req) {
+    httr2::response(status_code = 403)
+  })
+  expect_snapshot(error = TRUE, {
+    check_service(get_service_url("biology"))
+  })
+})

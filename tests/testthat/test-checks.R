@@ -177,8 +177,48 @@ test_that("check_service() works", {
 
 test_that("check_wcs_version() works", {
   skip_if_offline()
-  wcs <- emdn_init_wcs_client("human_activities", "1.1.0")
-  expect_snapshot(check_wcs_version(wcs))
+
+  expect_snapshot(emdn_init_wcs_client("human_activities", "1.1.0"))
 
   expect_snapshot(emdn_init_wcs_client("biology", "2.1.0"))
+})
+
+test_that("validate_dimension_subset() works", {
+  vcr::local_cassette("validate-dimensions")
+  wcs <- emdn_init_wcs_client(service = "biology")
+  coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
+
+  expect_error(
+    emdn_get_coverage(
+      wcs,
+      coverage_id = coverage_id,
+      bbox = c(
+        xmin = 0,
+        ymin = 40,
+        xmax = 5,
+        ymax = 45
+      ),
+      time = c(
+        "1958-02-16T01:00:00",
+        "2062-11-16T01:00:00"
+      )
+    ),
+    "Assertion"
+  )
+
+  cov <- suppressWarnings(emdn_get_coverage(
+    wcs,
+    coverage_id = coverage_id,
+    bbox = c(
+      xmin = 0,
+      ymin = 40,
+      xmax = 5,
+      ymax = 45
+    ),
+    time = c(
+      "1958-02-16T01:00:00",
+      "1962-11-16T01:00:00"
+    )
+  ))
+  expect_s4_class(cov, "SpatRaster")
 })

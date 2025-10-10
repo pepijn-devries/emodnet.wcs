@@ -9,6 +9,9 @@ template:
 navbar:
   bg: primary
   components:
+   intro:
+    text: Get started
+    href: articles/emodnet.wcs.html
     articles:
       text: Articles
       menu:

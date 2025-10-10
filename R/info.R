@@ -10,13 +10,7 @@
   ),
   logger = c("NONE", "INFO", "DEBUG")
 ) {
-  if (is.null(wcs) && is.null(service)) {
-    cli::cli_abort(c(
-      x = "Please provide a valid {.var service}
-        name or {.cls WCSClient} object to {.var wcs}.
-        Both cannot be {.val NULL}"
-    ))
-  }
+  check_one_present(wcs, service)
 
   if (is.null(wcs)) {
     wcs <- emdn_init_wcs_client(service, service_version, logger)
@@ -218,13 +212,7 @@ emdn_get_wcs_info_all <- memoise::memoise(.emdn_get_wcs_info_all)
   ),
   logger = c("NONE", "INFO", "DEBUG")
 ) {
-  if (is.null(wcs) && is.null(service)) {
-    cli::cli_abort(c(
-      x = "Please provide a valid {.var service}
-        name or {.cls WCSClient} object to {.var wcs}.
-        Both cannot be {.val NULL}"
-    ))
-  }
+  check_one_present(wcs, service)
 
   if (is.null(wcs)) {
     wcs <- emdn_init_wcs_client(service, service_version, logger)

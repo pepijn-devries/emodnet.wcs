@@ -614,3 +614,16 @@ conc_constraint <- function(x) {
 
   toString(x)
 }
+
+check_one_present <- function(wcs, service, call = rlang::caller_env()) {
+  if (is.null(wcs) && is.null(service)) {
+    cli::cli_abort(
+      c(
+        x = "Please provide a valid {.var service}
+        name or {.cls WCSClient} object to {.var wcs}.
+        Both cannot be {.val NULL}"
+      ),
+      call = call
+    )
+  }
+}

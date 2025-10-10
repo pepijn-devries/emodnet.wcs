@@ -90,14 +90,7 @@ emdn_get_coverage <- function(
   filename = NULL,
   nil_values_as_na = FALSE
 ) {
-  if (is.null(wcs) && is.null(service)) {
-    cli::cli_abort(c(
-      x = "Please provide a valid {.var service}
-        name or {.cls WCSClient} object to {.var wcs}.
-        Both cannot be {.val NULL}"
-    ))
-  }
-
+  check_one_present(wcs, service)
   wcs <- wcs %||% emdn_init_wcs_client(service, service_version, logger)
 
   check_wcs(wcs)

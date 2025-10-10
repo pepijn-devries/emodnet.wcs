@@ -111,3 +111,11 @@ test_that("rangeType processed correctly", {
     )
   )
 })
+
+test_that("check_one_present() works", {
+  expect_silent(check_one_present("a", NULL))
+  expect_silent(check_one_present(NULL, "a"))
+  expect_snapshot(error = TRUE, {
+    check_one_present(NULL, NULL)
+  })
+})

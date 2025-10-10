@@ -101,3 +101,11 @@
       temporal_coefficents
       
 
+# check_one_present() works
+
+    Code
+      check_one_present(NULL, NULL)
+    Condition
+      Error:
+      x Please provide a valid `service` name or <WCSClient> object to `wcs`. Both cannot be "NULL"
+

@@ -174,3 +174,11 @@ test_that("check_service() works", {
     check_service(get_service_url("biology"))
   })
 })
+
+test_that("check_wcs_version() works", {
+  skip_if_offline()
+  wcs <- emdn_init_wcs_client("human_activities", "1.1.0")
+  expect_snapshot(check_wcs_version(wcs))
+
+  expect_snapshot(emdn_init_wcs_client("biology", "2.1.0"))
+})

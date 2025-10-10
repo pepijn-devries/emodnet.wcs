@@ -13,7 +13,7 @@ http_interactions:
       content-disposition: inline; filename=Emodnetbio__aca_spp_19582016_L1.tif
       content-type: image/tiff
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 09:19:36 GMT
+      date: Fri, 10 Oct 2025 08:03:32 GMT
     body:
       raw_gzip: |-
         eJztmmk0ll/f908zmUNkrIgGqahU7O+uUIr8lUiDSikNaEaRMmQqY4bMMocyZUqkKDIPRaaU
@@ -338,7 +338,7 @@ http_interactions:
         CxYsWLBgwYIFCxYsWLBgwYIFCxYsWLBgwYIFCxYsWLBg8b9hq
         n+HMtX9WbBgwYIFCxYsWLBg
         wYIFCxYsWLBgwYIFCxYsWLBgwYIFCxYsWLD43/B/AMHHH0c=
-  recorded_at: 2025-07-24 09:19:36
+  recorded_at: 2025-10-10 08:03:32
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__aca_spp_19582016_L1&subset=Lat%2853%2C58%29&format=image%2Ftiff&request=GetCoverage
@@ -350,10 +350,11 @@ http_interactions:
       content-security-policy: base-uri 'self'; form-action 'self'; default-src 'none';
         child-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:;
         style-src 'self' 'unsafe-inline'; script-src 'self';, frame-ancestors 'self';
+      access-control-allow-origin: '*'
       content-disposition: inline; filename=Emodnetbio__aca_spp_19582016_L1.tif
       content-type: image/tiff
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 09:19:37 GMT
+      date: Fri, 10 Oct 2025 08:03:32 GMT
     body:
       raw_gzip: |-
         eJztmmk0lW/b8AkZ0mCoVDRpMJREROj8Za4UigqNNKmUJilSIkqkIlMpjRqERhGVUtE80OxP
@@ -672,7 +673,7 @@ http_interactions:
         ZMiQIUOGDBkyZMiQIUOGjP8NDf1/
         KA3dX4YMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAhQ4YM
         GTJkyJAhQ4aM/w3/B1begco=
-  recorded_at: 2025-07-24 09:19:37
+  recorded_at: 2025-10-10 08:03:33
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__aca_spp_19582016_L1&subset=Lat%2853%2C58%29&format=image%2Ftiff&request=GetCoverage
@@ -684,11 +685,10 @@ http_interactions:
       content-security-policy: base-uri 'self'; form-action 'self'; default-src 'none';
         child-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:;
         style-src 'self' 'unsafe-inline'; script-src 'self';, frame-ancestors 'self';
-      access-control-allow-origin: '*'
       content-disposition: inline; filename=Emodnetbio__aca_spp_19582016_L1.tif
       content-type: image/tiff
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 09:19:37 GMT
+      date: Fri, 10 Oct 2025 08:03:33 GMT
     body:
       raw_gzip: |-
         eJycmHk4l3n3x79fvvZ9i0hCSJKkiJb3SUlNyrRQWqimxkxqUmIqKfuWfc8SilDK0pClbCG7
@@ -1006,5 +1006,5 @@ http_interactions:
         8/0SyQSiUQikUgkEolEIpFIJBKJRCKRSCQSiUQikUgk/wqxP4ci
         9n6JRCKRSCQSiUQikUgkEolEIpFI
         JBKJRCKRSCQSieRf8e/UOG0t
-  recorded_at: 2025-07-24 09:19:37
+  recorded_at: 2025-10-10 08:03:33
 recorded_with: VCR-vcr/2.0.0

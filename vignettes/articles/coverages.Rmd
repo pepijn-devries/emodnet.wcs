@@ -71,7 +71,6 @@ We can first check the bounding box of the full coverage to ensure the subset bo
 
 ```{r}
 #| label: summary
-#| cassette: true
 cov_summary <- emdn_get_coverage_summaries(
   wcs,
   coverage_id

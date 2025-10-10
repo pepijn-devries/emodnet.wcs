@@ -14,7 +14,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:16 GMT
+      date: Fri, 10 Oct 2025 08:14:05 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -43,7 +43,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__ratio_large_to_small_19582016_L1_err_td_0">
@@ -823,15 +823,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:16
+  recorded_at: 2025-10-10 08:14:05
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:23 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:10 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -859,7 +859,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:23
+  recorded_at: 2025-10-10 08:14:10
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__aca_spp_19582016_L1&request=DescribeCoverage
@@ -876,7 +876,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:23 GMT
+      date: Fri, 10 Oct 2025 08:14:09 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -905,7 +905,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/en/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__aca_spp_19582016_L1_td_0">
@@ -1669,15 +1669,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:23
+  recorded_at: 2025-10-10 08:14:10
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:30 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:14 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -1705,7 +1705,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:30
+  recorded_at: 2025-10-10 08:14:14
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__cal_fin_19582016_L1_err&request=DescribeCoverage
@@ -1721,7 +1721,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:30 GMT
+      date: Fri, 10 Oct 2025 08:14:14 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -1750,7 +1750,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__cal_fin_19582016_L1_err_td_0">
@@ -2530,15 +2530,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:30
+  recorded_at: 2025-10-10 08:14:14
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:38 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:18 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -2566,7 +2566,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:38
+  recorded_at: 2025-10-10 08:14:19
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__cal_hel_19582016_L1_err&request=DescribeCoverage
@@ -2578,12 +2578,11 @@ http_interactions:
       content-security-policy: base-uri 'self'; form-action 'self'; default-src 'none';
         child-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:;
         style-src 'self' 'unsafe-inline'; script-src 'self';, frame-ancestors 'self';
-      access-control-allow-origin: '*'
       content-disposition: inline; filename=geoserver-DescribeCoverage.application
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:38 GMT
+      date: Fri, 10 Oct 2025 08:14:19 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -2612,7 +2611,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__cal_hel_19582016_L1_err_td_0">
@@ -3392,15 +3391,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:38
+  recorded_at: 2025-10-10 08:14:19
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:44 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:23 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -3428,7 +3427,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:44
+  recorded_at: 2025-10-10 08:14:24
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__met_luc_19582016_L1_err&request=DescribeCoverage
@@ -3440,11 +3439,12 @@ http_interactions:
       content-security-policy: base-uri 'self'; form-action 'self'; default-src 'none';
         child-src 'self'; connect-src 'self'; font-src 'self'; img-src 'self' data:;
         style-src 'self' 'unsafe-inline'; script-src 'self';, frame-ancestors 'self';
+      access-control-allow-origin: '*'
       content-disposition: inline; filename=geoserver-DescribeCoverage.application
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:45 GMT
+      date: Fri, 10 Oct 2025 08:14:23 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -3473,7 +3473,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__met_luc_19582016_L1_err_td_0">
@@ -4253,15 +4253,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:45
+  recorded_at: 2025-10-10 08:14:24
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:51 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:29 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -4289,7 +4289,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:51
+  recorded_at: 2025-10-10 08:14:29
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__oit_spp_19582016_L1_err&request=DescribeCoverage
@@ -4305,7 +4305,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:52 GMT
+      date: Fri, 10 Oct 2025 08:14:29 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -4334,7 +4334,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__oit_spp_19582016_L1_err_td_0">
@@ -5114,15 +5114,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:52
+  recorded_at: 2025-10-10 08:14:29
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:20:59 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:34 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -5150,7 +5150,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:20:59
+  recorded_at: 2025-10-10 08:14:34
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__tem_lon_19582016_L1_err&request=DescribeCoverage
@@ -5167,7 +5167,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:20:59 GMT
+      date: Fri, 10 Oct 2025 08:14:34 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -5196,7 +5196,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__tem_lon_19582016_L1_err_td_0">
@@ -5976,15 +5976,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:20:59
+  recorded_at: 2025-10-10 08:14:34
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:21:06 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:38 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -6012,7 +6012,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:21:06
+  recorded_at: 2025-10-10 08:14:38
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__chli_19582016_L1_err&request=DescribeCoverage
@@ -6028,7 +6028,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:21:07 GMT
+      date: Fri, 10 Oct 2025 08:14:39 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -6836,15 +6836,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:21:07
+  recorded_at: 2025-10-10 08:14:39
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:21:14 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:43 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -6872,7 +6872,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:21:15
+  recorded_at: 2025-10-10 08:14:43
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__tot_lar_19582016_L1_err&request=DescribeCoverage
@@ -6889,7 +6889,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:21:14 GMT
+      date: Fri, 10 Oct 2025 08:14:42 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -6918,7 +6918,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__tot_lar_19582016_L1_err_td_0">
@@ -7698,15 +7698,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:21:15
+  recorded_at: 2025-10-10 08:14:43
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:21:21 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:47 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -7734,7 +7734,7 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:21:22
+  recorded_at: 2025-10-10 08:14:47
 - request:
     method: GET
     uri: https://geo.vliz.be/geoserver/Emodnetbio/wcs?service=WCS&version=2.0.1&coverageId=Emodnetbio__tot_sma_19582016_L1_err&request=DescribeCoverage
@@ -7751,7 +7751,7 @@ http_interactions:
       content-encoding: gzip
       content-type: application/xml
       transfer-encoding: chunked
-      date: Thu, 24 Jul 2025 11:21:22 GMT
+      date: Fri, 10 Oct 2025 08:14:47 GMT
     body:
       string: |
         <?xml version="1.0" encoding="UTF-8"?><wcs:CoverageDescriptions xmlns:wcs="http://www.opengis.net/wcs/2.0" xmlns:ows="http://www.opengis.net/ows/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlcov="http://www.opengis.net/gmlcov/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" xsi:schemaLocation=" http://www.opengis.net/wcs/2.0 http://schemas.opengis.net/wcs/2.0/wcsDescribeCoverage.xsd http://www.geoserver.org/wcsgs/2.0 https://geo.vliz.be/geoserver/schemas/wcs/2.0/wcsgs.xsd">
@@ -7780,7 +7780,7 @@ http_interactions:
                   <ows:Keyword>WCS</ows:Keyword>
                   <ows:Keyword>ImageMosaic</ows:Keyword>
                 </ows:Keywords>
-                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-00000000005438/formatters/xml"/>
+                <ows:Metadata xlink:type="simple" xlink:href="https://emodnet.ec.europa.eu/geonetwork/srv/api/records/6d617269-6e65-696e-666f-000000005438/formatters/xml"/>
                 <ows:Metadata xlink:type="simple" xlink:href="https://www.vliz.be/nl/imis?module=dataset&amp;dasid=5438&amp;show=inspire"/>
                 <wcsgs:TimeDomain xmlns:wcsgs="http://www.geoserver.org/wcsgs/2.0" default="2016-11-16T01:00:00.000Z">
                   <gml:TimeInstant gml:id="Emodnetbio__tot_sma_19582016_L1_err_td_0">
@@ -8560,15 +8560,15 @@ http_interactions:
             </wcs:ServiceParameters>
           </wcs:CoverageDescription>
         </wcs:CoverageDescriptions>
-  recorded_at: 2025-07-24 11:21:22
+  recorded_at: 2025-10-10 08:14:48
 - request:
     method: GET
     uri: https://www.opengis.net/def/crs/EPSG/0/4326
   response:
     status: 200
     headers:
-      date: Thu, 24 Jul 2025 11:21:29 GMT
-      server: Apache/2.4.62 (Debian)
+      date: Fri, 10 Oct 2025 08:14:52 GMT
+      server: Apache/2.4.65 (Debian)
       content-length: '2091'
       cache-control: max-age=86400
       strict-transport-security: max-age=31536000; includeSubDomains
@@ -8596,5 +8596,5 @@ http_interactions:
         ysz3koxnH3+ffRNPiv6sg7wA6XjJwaBcFZBplsMiaAU7SNtF08UfUcdIyQSkv9YZmo47kD
         cc
         3H7q/e28Aeqaa6t4werlf3SgL38ypvT98j1B1e/lFXNbcRaBR5JJTN/91F1lLzZ++g8RQqO/
-  recorded_at: 2025-07-24 11:21:29
+  recorded_at: 2025-10-10 08:14:52
 recorded_with: VCR-vcr/2.0.0

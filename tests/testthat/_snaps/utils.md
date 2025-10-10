@@ -109,3 +109,15 @@
       Error:
       x Please provide a valid `service` name or <WCSClient> object to `wcs`. Both cannot be "NULL"
 
+# emdn_has_dimension() works
+
+    Code
+      emdn_get_coverage_dim_coefs(wcs, coverage_id, "vertical")
+    Condition
+      Warning:
+      coverage_id "Emodnetbio__aca_spp_19582016_L1" has no "vertical" dimension.
+    Output
+      $Emodnetbio__aca_spp_19582016_L1
+      [1] NA
+      
+

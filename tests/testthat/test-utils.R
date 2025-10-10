@@ -119,3 +119,32 @@ test_that("check_one_present() works", {
     check_one_present(NULL, NULL)
   })
 })
+
+test_that("emdn_has_dimension() works", {
+  vcr::local_cassette("biology-dims")
+  wcs <- emdn_init_wcs_client(service = "biology")
+
+  coverage_id <- "Emodnetbio__aca_spp_19582016_L1"
+
+  temporal <- emdn_has_dimension(
+    wcs,
+    coverage_ids = coverage_id,
+    type = "temporal"
+  )
+  expect_true(temporal)
+
+  # Check for vertical dimension
+  vertical <- emdn_has_dimension(
+    wcs,
+    coverage_ids = coverage_id,
+    type = "vertical"
+  )
+  expect_false(vertical)
+
+  temporal_coeffs <- emdn_get_coverage_dim_coefs(wcs, coverage_id, "temporal")
+  expect_type(temporal_coeffs[[coverage_id]], "character")
+
+  expect_snapshot(
+    emdn_get_coverage_dim_coefs(wcs, coverage_id, "vertical")
+  )
+})

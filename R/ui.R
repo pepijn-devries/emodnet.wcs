@@ -10,12 +10,6 @@ cli_alert_info <- function(text, .envir = parent.frame()) {
   }
 }
 
-cli_alert_danger <- function(text, .envir = parent.frame()) {
-  if (!getOption("emodnet.wcs.quiet", FALSE)) {
-    cli::cli_alert_danger(text, .envir = .envir)
-  }
-}
-
 cli_alert_warning <- function(text, .envir = parent.frame()) {
   if (!getOption("emodnet.wcs.quiet", FALSE)) {
     cli::cli_alert_warning(text, .envir = .envir)

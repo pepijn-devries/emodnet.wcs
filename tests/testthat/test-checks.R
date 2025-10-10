@@ -149,7 +149,6 @@ test_that("check_cov_contains_bbox() works -- user supplied bbox with crs", {
   vcr::local_cassette("cov-checks2")
 
   wcs <- emdn_init_wcs_client(service = "human_activities")
-  coverage_id <- "Emodnetbio__cal_fin_19582016_L1_err"
 
   cov <- emdn_get_coverage(
     wcs,

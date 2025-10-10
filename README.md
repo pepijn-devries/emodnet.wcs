@@ -10,8 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/emodnet.wcs)](https://CRAN.R-project.org/package=emodnet.wcs)
 [![R-CMD-check](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EMODnet/emodnet.wcs/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/EMODnet/emodnet.wcs/graph/badge.svg)](https://app.codecov.io/gh/EMODnet/emodnet.wcs)
+[![codecov](https://codecov.io/gh/EMODnet/emodnet.wcs/branch/main/graph/badge.svg)](https://codecov.io/gh/EMODnet/emodnet.wcs)
 <!-- badges: end -->
 
 The goal of emodnet.wcs is to allow interrogation of and access to

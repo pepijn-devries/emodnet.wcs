@@ -461,7 +461,7 @@ emdn_get_dimensions_info <- function(
     if (include_coeffs) {
       out <- x
     } else {
-      out <- purrr::map(x, head, 3L)
+      out <- purrr::map(x, utils::head, 3L)
     }
 
     stats::setNames(out, glue::glue("dim_{seq_along(out)}"))

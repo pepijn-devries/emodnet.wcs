@@ -107,6 +107,7 @@ emdn_get_coverage <- function(
     user_bbox <- sf::st_as_sfc(sf::st_bbox(bbox))
     if (is.na(sf::st_crs(user_bbox)))
       sf::st_crs(user_bbox) <- crs
+    }
     bbox <- sf::st_as_sfc(sf::st_bbox(user_bbox)) |>
       sf::st_transform(crs = coverage_crs) |>
       sf::st_bbox(bbox)

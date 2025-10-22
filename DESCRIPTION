@@ -10,7 +10,9 @@ Authors@R: c(
     person("VLIZ (VLAAMS INSTITUUT VOOR DE ZEE)", , , "info@vliz.be", role = "fnd",
            comment = c(ROR = "0496vr396")),
     person("Pepijn", "de Vries", , "pepijn.devries@outlook.com", role = "ctb",
-           comment = c(ORCID = "0000-0002-7961-6646"))
+           comment = c(ORCID = "0000-0002-7961-6646")),
+    person("Maëlle", "Salmon", , "maelle.salmon@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0002-2815-0399"))
   )
 Description: Access and interrogate EMODnet Web Coverage Service data
     through R.

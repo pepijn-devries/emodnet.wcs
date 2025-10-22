@@ -100,55 +100,6 @@ check_coverages <- function(wcs, coverages) {
   }
 }
 
-check_cov_contains_bbox <- function(summary, bbox, crs) {
-  if (is.null(bbox)) {
-    return()
-  }
-
-  cov_bbox <- emdn_get_WGS84bbox(summary) |>
-    sf::st_as_sfc(crs = "WGS84")
-
-  if (is.null(crs)) {
-    message <- sprintf(
-      "The coverage crs is %s. You can supply the crs of your bbox through {.arg crs}.",
-      sf::st_crs(cov_bbox)[["input"]]
-    )
-    cli_alert_info(message)
-  }
-
-  # crs is NULL if it's the same as the coverage crs
-  user_supplied_crs <- crs
-  crs <- crs %||% sf::st_crs(cov_bbox)
-
-  user_bbox <- sf::st_as_sfc(sf::st_bbox(bbox))
-  sf::st_crs(user_bbox) <- crs
-  user_bbox <- sf::st_as_sfc(sf::st_bbox(user_bbox)) |>
-    sf::st_transform(crs = sf::st_crs(cov_bbox)) # cov_bbox can be the same
-
-  if (!s2_intersects(user_bbox, cov_bbox)) {
-    message <-
-      "{.var bbox} boundaries lie outside coverage extent.
-      No overlapping data to download."
-    if (is.null(user_supplied_crs)) {
-      message <- c(
-        message,
-        i = sprintf(
-          "The coverage crs is %s. You can supply the crs of your bbox through {.arg crs}.",
-          sf::st_crs(cov_bbox)[["input"]]
-        )
-      )
-    }
-    cli::cli_abort(message)
-  }
-}
-
-s2_intersects <- function(bbox1, bbox2) {
-  current <- sf::sf_use_s2()
-  suppressMessages(sf::sf_use_s2(TRUE))
-  on.exit(suppressMessages(sf::sf_use_s2(current)))
-  isTRUE(as.logical(sf::st_intersects(bbox1, bbox2)))
-}
-
 # ---- validations ----
 validate_namespace <- function(coverage_id) {
   gsub(":", "__", coverage_id, fixed = TRUE)

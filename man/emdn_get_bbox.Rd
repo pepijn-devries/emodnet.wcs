@@ -113,13 +113,13 @@ Get coverage metadata from a \verb{<WCSCoverageSummary>} object.
 }
 \section{Functions}{
 \itemize{
-\item \code{emdn_get_bbox()}: Get the bounding box (geographic extent) of a
+\item \code{emdn_get_bbox()}: Get the announced bounding box (geographic extent) of a
 coverage. Coordinates are given in the same Coordinate Reference System
-as the coverage.
+as the coverage. The bounding box is approximate and may overestimate coverage.
 
-\item \code{emdn_get_WGS84bbox()}: Get the bounding box (geographic extent) of a
+\item \code{emdn_get_WGS84bbox()}: Get the announced bounding box (geographic extent) of a
 coverage in World Geodetic System 1984 (WGS84) Coordinate Reference System
-(or \code{EPSG:4326}).
+(or \code{EPSG:4326}). The bounding box is approximate and may overestimate coverage.
 
 \item \code{emdn_get_band_nil_values()}: Get the value representing nil values in a
 coverage.

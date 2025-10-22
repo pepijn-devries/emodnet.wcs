@@ -236,17 +236,17 @@ emdn_get_coverage_dim_coefs <- function(
 #' emdn_get_dimensions_n(summary)
 #' # get dimensions types
 #' emdn_get_dimension_types(summary)
-#' @describeIn emdn_get_bbox Get the bounding box (geographic extent) of a
+#' @describeIn emdn_get_bbox Get the announced bounding box (geographic extent) of a
 #' coverage. Coordinates are given in the same Coordinate Reference System
-#' as the coverage.
+#' as the coverage. The bounding box is approximate and may overestimate coverage.
 #' @export
 emdn_get_bbox <- function(summary) {
   summary$getBoundingBox()$BoundingBox$getBBOX()
 }
 
-#' @describeIn emdn_get_bbox Get the bounding box (geographic extent) of a
+#' @describeIn emdn_get_bbox Get the announced bounding box (geographic extent) of a
 #' coverage in World Geodetic System 1984 (WGS84) Coordinate Reference System
-#' (or `EPSG:4326`).
+#' (or `EPSG:4326`). The bounding box is approximate and may overestimate coverage.
 #' @export
 emdn_get_WGS84bbox <- function(summary) {
   summary$getWGS84BoundingBox()$WGS84BoundingBox$getBBOX()

@@ -164,7 +164,7 @@ emdn_get_coverage <- function(
       silent = TRUE
     )
     if (inherits(cov_raster, "try-error")) {
-      # cannot set filename for some reason so extracting it
+      # better to extract filename, so it exists
       filename <- trimws(sub(".* SpatRaster: ", "", as.character(cov_raster)))
       no_data <- any(grepl(
         "Empty intersection after subsetting",
@@ -184,7 +184,6 @@ emdn_get_coverage <- function(
         {.pkg terra} {.cls SpatRaster} Stack"
     )
   } else {
-    filename <- filename %||% withr::local_tempfile(fileext = ".tif")
     # https://github.com/eblondel/ows4R/issues/151
     cov_raster <- try(
       suppressWarnings(summary$getCoverage(
@@ -200,6 +199,7 @@ emdn_get_coverage <- function(
     )
 
     if (inherits(cov_raster, "try-error")) {
+      filename <- trimws(sub(".* SpatRaster: ", "", as.character(cov_raster)))
       no_data <- any(grepl(
         "Empty intersection after subsetting",
         readLines(filename)

@@ -98,11 +98,24 @@ emdn_get_coverage <- function(
 
   checkmate::assert_character(coverage_id, len = 1L)
   check_coverages(wcs, coverage_id)
-  validate_bbox(bbox)
 
-  summary <- emdn_get_coverage_summaries(wcs, coverage_id)[[1L]]
+  validate_bbox(bbox)
+  coverage_crs <- emdn_get_coverage_info(wcs, coverage_ids = coverage_id)[[
+    "crs"
+  ]]
+
+  if (crs != coverage_crs) {
+    user_bbox <- sf::st_as_sfc(sf::st_bbox(bbox))
+    if (is.na(sf::st_crs(user_bbox))) {
+      sf::st_crs(user_bbox) <- crs
+    }
+    bbox <- user_bbox |>
+      sf::st_transform(crs = coverage_crs) |>
+      sf::st_bbox()
+  }
 
   # validate request arguments
+  summary <- emdn_get_coverage_summaries(wcs, coverage_id)[[1L]]
   if (!is.null(rangesubset)) {
     validate_rangesubset(summary, rangesubset)
     rangesubset_encoded <- utils::URLencode(rangesubset) |>
@@ -129,9 +142,7 @@ emdn_get_coverage <- function(
     )
   }
 
-  check_cov_contains_bbox(summary, bbox, crs)
   cli_rule(left = "Downloading coverage {.val {coverage_id}}")
-
   coverage_id <- validate_namespace(coverage_id)
 
   if (!is.null(bbox)) {
@@ -144,29 +155,66 @@ emdn_get_coverage <- function(
   }
 
   if (length(time) > 1L || length(elevation) > 1L) {
-    cov_raster <- summary$getCoverageStack(
-      bbox = ows_bbox,
-      crs = crs,
-      time = time,
-      format = format,
-      rangesubset = rangesubset_encoded,
-      filename = filename
+    cov_raster <- try(
+      suppressWarnings(summary$getCoverageStack(
+        bbox = ows_bbox,
+        crs = crs,
+        time = time,
+        format = format,
+        rangesubset = rangesubset_encoded,
+        filename = filename
+      )),
+      silent = TRUE
     )
+    if (inherits(cov_raster, "try-error")) {
+      # better to extract filename, so it exists
+      filename <- trimws(sub(".* SpatRaster: ", "", as.character(cov_raster)))
+      no_data <- any(grepl(
+        "Empty intersection after subsetting",
+        readLines(filename)
+      ))
+      if (no_data) {
+        cli::cli_warn("Can't find any data in the {.arg bbox}.")
+        return(NULL)
+      } else {
+        # error we don't know about
+        cli::cli_abort(cov_raster)
+      }
+    }
 
     cli_alert_success(
       "\n Coverage {.val {coverage_id}} downloaded succesfully as a
         {.pkg terra} {.cls SpatRaster} Stack"
     )
   } else {
-    cov_raster <- summary$getCoverage(
-      bbox = ows_bbox,
-      crs = crs,
-      time = time,
-      elevation = elevation,
-      format = format,
-      rangesubset = rangesubset_encoded,
-      filename = filename
+    # https://github.com/eblondel/ows4R/issues/151
+    cov_raster <- try(
+      suppressWarnings(summary$getCoverage(
+        bbox = ows_bbox,
+        crs = crs,
+        time = time,
+        elevation = elevation,
+        format = format,
+        rangesubset = rangesubset_encoded,
+        filename = filename
+      )),
+      silent = TRUE
     )
+
+    if (inherits(cov_raster, "try-error")) {
+      filename <- trimws(sub(".* SpatRaster: ", "", as.character(cov_raster)))
+      no_data <- any(grepl(
+        "Empty intersection after subsetting",
+        readLines(filename)
+      ))
+      if (no_data) {
+        cli::cli_warn("Can't find any data in the {.arg bbox}.")
+        return(NULL)
+      } else {
+        # error we don't know about
+        cli::cli_abort(cov_raster)
+      }
+    }
 
     cli_alert_success(
       "\n Coverage {.val {coverage_id}} downloaded succesfully as a
